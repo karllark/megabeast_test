@@ -1,0 +1,12 @@
+
+Testing area for MegaBEAST development
+
+beast_sim directory has two subdirs
+   both use a scylla field with 3 band photometry
+   scylla_sim is a beast run for all ages and one metallicity
+      and a range of dust from 0 to 2.5 A(V)
+   scylla_sim_single is a best run for a single age and one metallicity
+      and very low dust
+
+both megabeast settings files use the results run with
+   beast_sim/scylla_sim_single/sim_max.fits as the observed data
