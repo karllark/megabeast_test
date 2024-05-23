@@ -1,5 +1,5 @@
 # BEAST results files
-beast_base = "beast_sim/scylla_sim/scylla_sim"
+beast_base = "beast_sim/scylla_sim_single/scylla_sim_single"
 
 # stellar population model
 stellar_model = {
@@ -58,7 +58,8 @@ fd_model = {
         "varnames": ["mean", "sigma"],
         "varinit": [4.0, 0.25],
         "prior": {
-            "name": "flat",
+            "name": "fixed",
+            # "name": "flat",
             "minmax": [[2.0, 6.0], [0.05, 1.0]],
         },
     },

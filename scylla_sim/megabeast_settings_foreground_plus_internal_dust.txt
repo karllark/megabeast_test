@@ -3,7 +3,7 @@ beast_base = "beast_sim/scylla_sim/scylla_sim"
 
 # BEAST parameters to fit
 # param_list = ["Av", "Rv", "f_A", "M_ini", "logA", "Z", "distance"]
-param_list = ["Av"]
+param_list = ["Av_model"]
 
 # stellar population model
 stellar_model = {
