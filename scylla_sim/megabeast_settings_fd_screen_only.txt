@@ -1,5 +1,5 @@
 # BEAST results files
-beast_base = "beast_sim/scylla_sim_single/scylla_sim_single"
+beast_base = "beast_sim/scylla_sim_single/scylla_sim"
 
 # stellar population model
 stellar_model = {
