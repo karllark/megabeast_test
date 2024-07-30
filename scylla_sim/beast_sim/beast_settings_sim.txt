@@ -1,6 +1,3 @@
-# """ Data Model interface v3.0
-# BEAST datamodel for the example based on M31 PHAT data
-# """
 import numpy as np
 from astropy import units
 
@@ -11,23 +8,24 @@ from beast.physicsmodel.dust import extinction
 from beast.observationmodel.noisemodel import absflux_covmat
 
 # condensed settings just for simulations
-# (see beast-examples/phat_small for beast_settings.txt with extensive comments)
+# (see beast-examples/metal_small for beast_settings.txt with extensive comments)
 
 project = "scylla_sim_single"
 
 surveyname = "SCYLLA"
 
-filters = ['HST_WFC3_F336W','HST_ACS_WFC_F475W','HST_WFC3_F814W']
+filters = ['HST_WFC3_F225W','HST_WFC3_F275W','HST_WFC3_F336W','HST_WFC3_F475W','HST_WFC3_F814W', 'HST_WFC3_F110W','HST_WFC3_F160W']
 
-basefilters = ["F336W", "F475W", "F814W"]
+basefilters = ["F225W", "F275W", "F336W", "F475W", "F814W", "F110W", "F160W"]
 obs_colnames = [f.upper() + "_RATE" for f in basefilters]
 
 # obsfile = "data/15891_SMC-3956ne-9632.gst.fits"
 obsfile = "scylla_sim_single/sim_max.fits"
+# obsfile = "data/15891_SMC-1588ne-12105.vgst.fits"
 
 ## observation(noise) model
 
-astfile = "data/15891_SMC-3956ne-9632.gst.fake.fits"
+astfile = "data/15891_LMC-3610se-7920.vgst.fake.fits"
 ast_colnames = np.array(basefilters)
 noisefile = project + "/" + project + "_noisemodel.grid.hd5"
 absflux_a_matrix = absflux_covmat.hst_frac_matrix(filters)
@@ -39,11 +37,11 @@ n_subgrid = 1
 # stars
 
 velocity = 262.2 * units.km / units.s  # LMC velocity from SIMBAD
-distances = [18.5]
-distance_unit = units.mag
+distances = [60.]
+distance_unit = units.kpc
 distance_prior_model = {'name': 'flat'}
 
-logt = [7.0, 7.1, 0.05]
+logt = [6.0, 10.13, 0.5]
 age_prior_model = {'name': 'flat', "sfr": 1e-4}
 mass_prior_model = {"name": "kroupa"}
 # metallicities given as relative to solar which has 0.0152 (Z_solar)
@@ -58,9 +56,15 @@ osl = stellib.Tlusty() + stellib.Kurucz()
 extLaw = extinction.Gordon16_RvFALaw()
 avs = [0.0, 0.05, 0.025]
 av_prior_model = {"name": "flat"}
-rvs = [2.5, 3.5, 0.5]
+#av_prior_model = {"name": "lognormal",
+#                  "mean": 2.0,
+#                  "sigma": 1.0}
+rvs = [2.0, 5.0, 0.5]
 rv_prior_model = {"name": "flat"}
-fAs = [0.0, 1.0, 0.5]
+#rv_prior_model = {"name": "lognormal",
+#                  "mean": 3.1,
+#                  "sigma": 0.25}
+fAs = [0.0, 1.0, 0.25]
 fA_prior_model = {"name": "flat"}
 
 ## misc

@@ -1,5 +1,5 @@
 # BEAST results files
-beast_base = "beast_sim/scylla_sim_single/scylla_sim"
+beast_base = "beast_sim/scylla_sim/scylla_sim"
 
 # stellar population model
 stellar_model = {
@@ -47,7 +47,7 @@ fd_model = {
     "Av": {
         "name": "lognormal",
         "varnames": ["mean", "sigma"],
-        "varinit": [0.5, 0.25],
+        "varinit": [3.0, 0.25],
         "prior": {
             "name": "flat",
             "minmax": [[0.005, 5.0], [0.05, 1.0]],
@@ -56,10 +56,10 @@ fd_model = {
     "Rv": {
         "name": "lognormal",
         "varnames": ["mean", "sigma"],
-        "varinit": [4.0, 0.25],
+        "varinit": [3.1, 0.25],
         "prior": {
-            "name": "fixed",
-            # "name": "flat",
+            # "name": "fixed",
+            "name": "flat",
             "minmax": [[2.0, 6.0], [0.05, 1.0]],
         },
     },

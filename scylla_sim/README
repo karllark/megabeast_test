@@ -1,12 +1,31 @@
+Updated: 30 July 2024
 
 Testing area for MegaBEAST development
 
-beast_sim directory has two subdirs
-   both use a scylla field with 3 band photometry
-   scylla_sim is a beast run for all ages and one metallicity
-      and a range of dust from 0 to 2.5 A(V)
-   scylla_sim_single is a best run for a single age and one metallicity
-      and very low dust
+Using a 7 band Scylla field for the ASTs to generate the observation model
 
-both megabeast settings files use the results run with
-   beast_sim/scylla_sim_single/sim_max.fits as the observed data
+At least two physics grids needed
+  one for simulation with a narrow range of A(V)s
+  one for fitting with a wide range of A(V)s
+
+Can the megabeast recover the narrow range of A(V)s from the sim?
+  are there visualizations that provide guidance on the meta
+    parameters for megabeast?
+
+beast_sim/scylla_sim
+  Avs between 0.0 and 5.0 with flat prior
+
+beast_sim/scylla_sim_single
+  Avs between 0.0 and 0.10 (almost no dust)
+
+beast_sim/scylla_sim_single_av1
+  Avs between 1.0 and 1.10 (almost no dust)
+
+simulate command
+`beast simulate_obs scylla_sim_single/scylla_sim_single_seds.grid.hd5 scylla_sim_single/scylla_sim_single_noisemodel.grid.hd5 scylla_sim_single/scylla_sim_low_Av.fits --nsim 100 --compl_filter=F475W`
+
+use the simulated output file as the observed data for run with scylla_sim
+
+megabeast command
+
+mb_fit_single megabeast_settings_fd_screen_only.txt
