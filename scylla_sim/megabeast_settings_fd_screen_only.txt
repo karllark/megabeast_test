@@ -63,7 +63,7 @@ fd_model = {
             "minmax": [[2.0, 6.0], [0.05, 1.0]],
         },
     },
-    "fA": {
+    "f_A": {
         "name": "lognormal",
         "varnames": ["mean", "sigma"],
         "varinit": [1.0, 0.25],
