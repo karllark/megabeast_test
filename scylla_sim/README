@@ -24,6 +24,9 @@ beast_sim/scylla_sim_single_av1
 simulate command
 `beast simulate_obs scylla_sim_single/scylla_sim_single_seds.grid.hd5 scylla_sim_single/scylla_sim_single_noisemodel.grid.hd5 scylla_sim_single/scylla_sim_low_Av.fits --nsim 100 --compl_filter=F475W`
 
+megabeast simulate command
+`mb_simulate_obs -p scylla_sim_single/scylla_sim_single_seds.grid.hd5 -n scylla_sim_single/scylla_sim_single_noisemodel.grid.hd5 -c scylla_sim_single/scylla_sim_low_Av.fits --nsim 100 --compl_filter=F475W`
+
 use the simulated output file as the observed data for run with scylla_sim
 
 megabeast command
